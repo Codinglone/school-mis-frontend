@@ -1,10 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import axios from 'axios';
+import Message from './Message';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const [isMessage, setIsMessage] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,10 +22,16 @@ const Login = () => {
             console.log(error);
           });
 
-          return response;
+          useEffect(() => {
+            if(response){
+                setIsMessage(true);
+                setTimeout(() => setIsMessage(false), 2000)
+            }
+          }, [message])
     }
   return (
     <Container>
+        {isMessage && <Message title="Welcome back" />}
         <form onSubmit={handleSubmit} className='w-1/4 shadow-lg text-lg text-blue-600'>
             <Label className='py-12'>
                 <label htmlFor="email" id="emailLabel" className='mx-4 py-2'>Email Address</label>
