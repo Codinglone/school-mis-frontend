@@ -8,7 +8,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const response = axios.post('http:localhost:5000/users', {
+        const response = axios.post('http://localhost:5000/users', {
             email: email,
             password,
           })
@@ -47,11 +47,13 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
 `;
 
 const Label = styled.div`
     display: flex;
     flex-direction: column;
+
 `;
 
 export default Login
