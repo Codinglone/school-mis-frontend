@@ -1,13 +1,20 @@
 import Login from './components/Login'
+import Banner from './components/Banner'
 import './App.css'
+import styled from 'styled-components'
 
 function App() {
 
   return (
-    <div className="App">
+    <Container className="App">
+      <Banner />
      <Login />
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  overflow: hidden;
+`;
 
 export default App

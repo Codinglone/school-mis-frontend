@@ -1,21 +1,40 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, {useState} from 'react'
+import styled from 'styled-components';
+import axios from 'axios';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const response = axios.post('http:localhost:5000/users', {
+            email: email,
+            password,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+          return response;
+    }
   return (
     <Container>
-        <form action="" className='w-1/4 shadow-lg text-lg text-blue-500'>
+        <form onSubmit={handleSubmit} className='w-1/4 shadow-lg text-lg text-blue-600'>
             <Label className='py-12'>
                 <label htmlFor="email" id="emailLabel" className='mx-4 py-2'>Email Address</label>
-                <input type="email" name="email" id="email" className='mx-4 outline-0 border-b-2 border-blue-400' />
+                <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className='mx-4 outline-0 border-b-2 border-blue-600' required />
             </Label>
             <Label>
                 <label htmlFor="password" id="passwordLabel" className='mx-4 py-2'>Password</label>
-                <input type="password" name="password" id="password" className='mx-4 outline-0 border-b-2 border-blue-400' />
+                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className='mx-4 outline-0 border-b-2 border-blue-600' required />
             </Label>
 
             <Label>
-                <button type='submit' className='mx-auto my-8 bg-blue-500 text-white px-8 py-1 rounded hover:bg-blue-600'>Login</button>
+                <button type='submit' className='mx-auto my-8 bg-blue-600 text-white px-8 py-1 rounded hover:bg-blue-700'>Login</button>
             </Label>
         </form>
     </Container>
