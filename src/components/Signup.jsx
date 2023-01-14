@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Message from "./Message";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -43,12 +44,13 @@ const Signup = () => {
   return (
     <Container>
       {isMessage && <Message title={message} />}
+      <h1 className="text-blue-600 font-medium" style={{position: 'absolute',top:'80px',fontSize: '1.5rem'}}>Create Account</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-1/4 shadow-lg text-lg text-blue-600"
+        className="w-1/4 shadow-lg text-lg text-blue-600 bg-white"
       >
-        <Label className="py-4">
-          <label htmlFor="firstName" id="firstNameLabel" className="mx-4 py-2">
+        <Label className="py-1">
+          <label htmlFor="firstName" id="firstNameLabel" className="mx-4 py-1">
             First Name
           </label>
           <input
@@ -61,8 +63,8 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-4">
-          <label htmlFor="lastName" id="lastNameLabel" className="mx-4 py-2">
+        <Label className="py-1">
+          <label htmlFor="lastName" id="lastNameLabel" className="mx-4 py-1">
             Last Name
           </label>
           <input
@@ -75,8 +77,8 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-4">
-          <label htmlFor="school" id="schoolLabel" className="mx-4 py-2">
+        <Label className="py-1">
+          <label htmlFor="school" id="schoolLabel" className="mx-4 py-1">
             School Name
           </label>
           <input
@@ -89,8 +91,8 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-4">
-          <label htmlFor="email" id="emailLabel" className="mx-4 py-2">
+        <Label className="py-1">
+          <label htmlFor="email" id="emailLabel" className="mx-4 py-1">
             Email Address
           </label>
           <input
@@ -104,7 +106,7 @@ const Signup = () => {
           />
         </Label>
         <Label>
-          <label htmlFor="password" id="passwordLabel" className="mx-4 py-2">
+          <label htmlFor="password" id="passwordLabel" className="mx-4 py-1">
             Password
           </label>
           <input
@@ -125,6 +127,9 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          <span className="text-sm mx-4 mb-4" style={{ alignSelf: "flex-end" }}>
+            Have account?<Link to="/" className="text-blue-900">login</Link>
+          </span>
         </Label>
       </form>
     </Container>

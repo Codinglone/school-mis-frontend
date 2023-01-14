@@ -39,9 +39,10 @@ const Login = () => {
   return (
     <Container>
       {isMessage && <Message title={message} />}
+      <h1 className="text-blue-600 font-medium" style={{position: 'absolute',top:'150px',fontSize: '1.5rem'}}>Account Login</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-1/4 shadow-lg text-lg text-blue-600"
+        className="w-1/4 shadow-lg text-lg text-blue-600 bg-white"
       >
         <Label className="py-12">
           <label htmlFor="email" id="emailLabel" className="mx-4 py-2">
@@ -94,6 +95,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
 `;
 
 const Label = styled.div`
