@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Message from "./Message";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,17 +25,17 @@ const Login = () => {
       });
 
     if (response) {
-        setMessage("Welcome back!!")
-        setIsMessage(true);
-        setTimeout(() => setIsMessage(false), 2000);
+      setMessage("Welcome back!!");
+      setIsMessage(true);
+      setTimeout(() => setIsMessage(false), 2000);
     }
   };
 
-    // useEffect(() => {
-    //   setIsMessage(true);
-    //   setTimeout(() => setIsMessage(false), 2000);
-    // }, [isMessage]);
-  
+  // useEffect(() => {
+  //   setIsMessage(true);
+  //   setTimeout(() => setIsMessage(false), 2000);
+  // }, [isMessage]);
+
   return (
     <Container>
       {isMessage && <Message title={message} />}
@@ -78,6 +79,9 @@ const Login = () => {
           >
             Login
           </button>
+          <span className="text-sm mx-4 mb-4" style={{ alignSelf: "flex-end" }}>
+            New here?<Link to="/signup" className="text-blue-900">sign up</Link>
+          </span>
         </Label>
       </form>
     </Container>

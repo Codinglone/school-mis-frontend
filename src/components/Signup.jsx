@@ -47,7 +47,7 @@ const Signup = () => {
         onSubmit={handleSubmit}
         className="w-1/4 shadow-lg text-lg text-blue-600"
       >
-        <Label className="py-12">
+        <Label className="py-4">
           <label htmlFor="firstName" id="firstNameLabel" className="mx-4 py-2">
             First Name
           </label>
@@ -61,7 +61,7 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-12">
+        <Label className="py-4">
           <label htmlFor="lastName" id="lastNameLabel" className="mx-4 py-2">
             Last Name
           </label>
@@ -75,7 +75,7 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-12">
+        <Label className="py-4">
           <label htmlFor="school" id="schoolLabel" className="mx-4 py-2">
             School Name
           </label>
@@ -89,7 +89,7 @@ const Signup = () => {
             required
           />
         </Label>
-        <Label className="py-12">
+        <Label className="py-4">
           <label htmlFor="email" id="emailLabel" className="mx-4 py-2">
             Email Address
           </label>
