@@ -25,13 +25,15 @@ const Login = () => {
 
     if (response) {
         setMessage("Welcome back!!")
+        setIsMessage(true);
+        setTimeout(() => setIsMessage(false), 2000);
     }
   };
 
-    useEffect(() => {
-      setIsMessage(true);
-      setTimeout(() => setIsMessage(false), 2000);
-    }, [message]);
+    // useEffect(() => {
+    //   setIsMessage(true);
+    //   setTimeout(() => setIsMessage(false), 2000);
+    // }, [isMessage]);
   
   return (
     <Container>
