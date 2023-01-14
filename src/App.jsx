@@ -4,6 +4,7 @@ import './App.css'
 import styled from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './components/Signup'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
       </Routes>
+      <Footer />
     </Container>
   )
 }
