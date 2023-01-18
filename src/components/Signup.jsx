@@ -108,6 +108,20 @@ const Signup = () => {
           />
         </Label>
         <Label className="py-1">
+          <label htmlFor="role" id="roleLabel" className="mx-4 py-1">
+            Role
+          </label>
+          <input
+            type="text"
+            name="role"
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="mx-4 outline-0 border-b-2 border-blue-600"
+            required
+          />
+        </Label>
+        <Label className="py-1">
           <label htmlFor="email" id="emailLabel" className="mx-4 py-1">
             Email Address
           </label>
