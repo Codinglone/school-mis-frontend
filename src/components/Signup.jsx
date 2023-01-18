@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Message from "./Message";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,6 +14,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isMessage, setIsMessage] = useState(false);
+
+  const navigate = useNavigate();
 
   const baseUrl = "http://localhost:7000/api/v1/users";
 
@@ -46,9 +48,9 @@ const Signup = () => {
         setRole("");
         setSchool("");
         setPassword("");
+        navigate('/')
       }, 2000);
 
-      return redirect("/login");
     }
   };
 
@@ -153,11 +155,11 @@ const Signup = () => {
         <Label>
           <button
             type="submit"
-            className="mx-auto my-8 bg-blue-600 text-white px-8 py-1 rounded hover:bg-blue-700"
+            className="mx-auto my-4 bg-blue-600 text-white px-8 py-1 rounded hover:bg-blue-700"
           >
             Sign Up
           </button>
-          <span className="text-sm mx-4 mb-4" style={{ alignSelf: "flex-end" }}>
+          <span className="text-sm mx-4 mb-2" style={{ alignSelf: "flex-end" }}>
             Have account?
             <Link to="/" className="text-blue-900">
               login
