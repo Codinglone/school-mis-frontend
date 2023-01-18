@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Message from "./Message";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,12 +15,18 @@ const Signup = () => {
   const [message, setMessage] = useState("");
   const [isMessage, setIsMessage] = useState(false);
 
+  const baseUrl = "http://localhost:7000/api/v1/users";
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const response = axios
-      .post("http://localhost:5000/users", {
-        email: email,
+      .post(baseUrl, {
+        firstName,
+        lastName,
+        email,
         password,
+        role,
+        school,
       })
       .then(function (response) {
         console.log(response);
@@ -30,21 +36,31 @@ const Signup = () => {
       });
 
     if (response) {
-        setMessage("Welcome back!!")
-        setIsMessage(true);
-        setTimeout(() => setIsMessage(false), 2000);
+      setMessage("Account created successfully!!");
+      setIsMessage(true);
+      setTimeout(() => {
+        setIsMessage(false);
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setRole("");
+        setSchool("");
+        setPassword("");
+      }, 2000);
+
+      return redirect("/login");
     }
   };
 
-    // useEffect(() => {
-    //   setIsMessage(true);
-    //   setTimeout(() => setIsMessage(false), 2000);
-    // }, [isMessage]);
-  
   return (
     <Container>
       {isMessage && <Message title={message} />}
-      <h1 className="text-blue-600 font-medium" style={{position: 'absolute',top:'80px',fontSize: '1.5rem'}}>Create Account</h1>
+      <h1
+        className="text-blue-600 font-medium"
+        style={{ position: "absolute", top: "80px", fontSize: "1.5rem" }}
+      >
+        Create Account
+      </h1>
       <form
         onSubmit={handleSubmit}
         className="w-1/4 shadow-lg text-lg text-blue-600 bg-white"
@@ -128,7 +144,10 @@ const Signup = () => {
             Sign Up
           </button>
           <span className="text-sm mx-4 mb-4" style={{ alignSelf: "flex-end" }}>
-            Have account?<Link to="/" className="text-blue-900">login</Link>
+            Have account?
+            <Link to="/" className="text-blue-900">
+              login
+            </Link>
           </span>
         </Label>
       </form>
