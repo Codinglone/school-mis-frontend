@@ -9,6 +9,7 @@ const AdminNav = () => {
                 <li><a href="#">Teachers</a></li>
                 <li><a href="#">Staff</a></li>
                 <li><a href="#">Bursary</a></li>
+                <li><a href="#">Kitchen</a></li>
             </ul>
         </nav>
     </Container>
