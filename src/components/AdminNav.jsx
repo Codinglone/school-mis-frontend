@@ -13,6 +13,7 @@ const AdminNav = () => {
                 <li><a href="#">Classes</a></li>
                 <li><a href="#">Storage</a></li>
                 <li><a href="#">Workers</a></li>
+                <li><a href="#">More...</a></li>
             </ul>
         </nav>
     </Container>
