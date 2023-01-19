@@ -1,9 +1,13 @@
 import React from 'react'
-
+import styled from 'styled-components'
 const AdminNav = () => {
   return (
-    <div>AdminNav</div>
+    <Container>AdminNav</Container>
   )
 }
+
+const Container = styled.div`
+    background-color: white;
+`;
 
 export default AdminNav
