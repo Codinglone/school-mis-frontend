@@ -5,7 +5,8 @@ const AdminNav = () => {
     <Container>
         <nav className='bg-blue-600'>
             <ul>
-                <li>Students</li>
+                <li><a href="#">Students</a></li>
+                <li><a href="#">Teachers</a></li>
             </ul>
         </nav>
     </Container>
