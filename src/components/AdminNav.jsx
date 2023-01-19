@@ -4,7 +4,9 @@ const AdminNav = () => {
   return (
     <Container>
         <nav className='bg-blue-600'>
-            
+            <ul>
+                
+            </ul>
         </nav>
     </Container>
   )
