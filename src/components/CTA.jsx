@@ -5,7 +5,7 @@ import logo from "../assets/react.svg";
 const CTA = () => {
   return (
     <Container>
-        <Image src='' />
+        <Image src={logo} />
     </Container>
   )
 }
