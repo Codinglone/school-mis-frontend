@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import logo from "../assets/react.svg";
 
 const CTA = () => {
   return (
     <Container>
-        <Image src='#' />
+        <Image src='' />
     </Container>
   )
 }
