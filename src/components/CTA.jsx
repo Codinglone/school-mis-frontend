@@ -16,7 +16,8 @@ const Image = styled.img`
 `;
 const Text = styled.p`
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: sans-serif;
 `;
 
 export default CTA
