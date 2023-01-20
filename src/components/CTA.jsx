@@ -14,6 +14,8 @@ const Container = styled.div``;
 const Image = styled.img`
     border-radius: 10px;
 `;
-const Text = styled.p``;
+const Text = styled.p`
+    color: #fff;
+`;
 
 export default CTA
