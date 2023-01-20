@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const CTA = () => {
   return (
     <Container>
-
+        <Image />
     </Container>
   )
 }
