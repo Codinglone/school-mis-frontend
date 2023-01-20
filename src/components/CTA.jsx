@@ -7,4 +7,6 @@ const CTA = () => {
   )
 }
 
+const Container = styled.div``;
+
 export default CTA
