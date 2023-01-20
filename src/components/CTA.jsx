@@ -3,10 +3,13 @@ import styled from 'styled-components'
 
 const CTA = () => {
   return (
-    <div>CTA</div>
+    <Container>
+
+    </Container>
   )
 }
 
 const Container = styled.div``;
+const Image = styled.img``;
 
 export default CTA
