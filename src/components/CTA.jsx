@@ -10,6 +10,8 @@ const CTA = () => {
 }
 
 const Container = styled.div``;
-const Image = styled.img``;
+const Image = styled.img`
+    border-radius: 10px;
+`;
 
 export default CTA
