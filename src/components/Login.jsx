@@ -31,10 +31,7 @@ const Login = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setIsMessage(true);
-  //   setTimeout(() => setIsMessage(false), 2000);
-  // }, [isMessage]);
+
 
   return (
     <Container>
