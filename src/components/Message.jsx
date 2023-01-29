@@ -8,8 +8,7 @@ const Message = ({title, bg}) => {
 }
 
 const Container = styled.div`
-    /* display: flex;
-    justify-content: center; */
+ 
     position: absolute;
     top: 100px;
     transition: 500ms ease-in-out;
