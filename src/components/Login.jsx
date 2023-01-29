@@ -1,36 +1,41 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Message from "./Message";
 import { Link } from "react-router-dom";
+import { data } from "autoprefixer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isMessage, setIsMessage] = useState(false);
-  const [bg, setBg] = useState('blue');
+  const [bg, setBg] = useState('red');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    const response = axios
+    let status = '';
+    const response = await axios
       .post("http://localhost:7000/api/v1/users/login", {
         email,
         password
       })
       .then(function (response) {
-        console.log(response);
+        if (response.status === 200) {
+          setMessage("Welcome back!!");
+          setIsMessage(true);
+          setBg('green')
+          setTimeout(() => setIsMessage(false), 2000);
+        }
       })
       .catch(function (error) {
         console.log(error);
+        setMessage("Invalid Credentials!!");
+          setIsMessage(true);
+          setBg('black')
+          setTimeout(() => setIsMessage(false), 2000);
       });
-
-    if (response) {
-      setMessage("Welcome back!!");
-      setIsMessage(true);
-      setBg('green')
-      setTimeout(() => setIsMessage(false), 2000);
-    }
+    
   };
 
 

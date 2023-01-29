@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Message = ({title}) => {
+const Message = ({title, bg}) => {
   return (
-    <Container><div className='bg-green-500 mt-4'>{title}</div></Container>
+    <Container><div className={`bg-${bg === 'green' ? 'green': 'red'}-500 mt-4`}>{title}</div></Container>
   )
 }
 
