@@ -9,13 +9,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isMessage, setIsMessage] = useState(false);
+  const [bg, setBg] = useState('blue');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const response = axios
-      .post("http://localhost:5000/users", {
-        email: email,
-        password,
+      .post("http://localhost:7000/api/v1/users/login", {
+        email,
+        password
       })
       .then(function (response) {
         console.log(response);
@@ -27,6 +28,7 @@ const Login = () => {
     if (response) {
       setMessage("Welcome back!!");
       setIsMessage(true);
+      setBg('green')
       setTimeout(() => setIsMessage(false), 2000);
     }
   };
@@ -35,8 +37,8 @@ const Login = () => {
 
   return (
     <Container>
-      {isMessage && <Message title={message} />}
-      <h1 className="text-blue-600 font-medium" style={{position: 'absolute',top:'150px',fontSize: '1.5rem'}}>Account Login</h1>
+      {isMessage && <Message title={message} bg={bg} />}
+      <h1 className={`text-${bg}-600 font-medium`} style={{position: 'absolute',top:'150px',fontSize: '1.5rem'}}>Account Login</h1>
       <form
         onSubmit={handleSubmit}
         className="w-1/4 shadow-lg text-lg text-blue-600 bg-white"
