@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Message = ({title, bg}) => {
   return (
-    <Container><div className={`bg-${bg === 'green' ? 'green': 'red'}-500 mt-4`}>{title}</div></Container>
+    <Container><div className={`mt-4`} style={{backgroundColor: bg}}>{title}</div></Container>
   )
 }
 
@@ -17,7 +17,8 @@ const Container = styled.div`
     width: 200px;
     text-align: center;
     padding: 10px 0;
-    color: white;
+    color: #fff;
+    font-weight: 600;
 }   
 `;
 

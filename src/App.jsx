@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './components/Signup'
 import Footer from './components/Footer'
+import Dashboard from './pages/dashboard'
+import Protected from './components/Protected'
 
 function App() {
 
@@ -14,6 +16,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/dashboard' element={
+          <Protected user=''>
+            <Dashboard />
+          </Protected>
+        } />
       </Routes>
       <Footer />
     </Container>

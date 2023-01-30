@@ -13,7 +13,6 @@ const Login = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    let status = '';
     const response = await axios
       .post("http://localhost:7000/api/v1/users/login", {
         email,
@@ -23,15 +22,19 @@ const Login = () => {
         if (response.status === 200) {
           setMessage("Welcome back!!");
           setIsMessage(true);
-          setBg('green')
-          setTimeout(() => setIsMessage(false), 2000);
+          setBg('#19c22f')
+          localStorage.setItem('user',response.data.email)
+          setTimeout(() => {
+            setIsMessage(false)
+            
+          }, 2000);
         }
       })
       .catch(function (error) {
         console.log(error);
         setMessage("Invalid Credentials!!");
           setIsMessage(true);
-          setBg('black')
+          setBg('#d61919');
           setTimeout(() => setIsMessage(false), 2000);
       });
     
@@ -42,7 +45,7 @@ const Login = () => {
   return (
     <Container>
       {isMessage && <Message title={message} bg={bg} />}
-      <h1 className={`text-${bg}-600 font-medium`} style={{position: 'absolute',top:'150px',fontSize: '1.5rem'}}>Account Login</h1>
+      <h1 className={`text-blue-600 font-medium`} style={{position: 'absolute',top:'150px',fontSize: '1.5rem'}}>Account Login</h1>
       <form
         onSubmit={handleSubmit}
         className="w-1/4 shadow-lg text-lg text-blue-600 bg-white"
