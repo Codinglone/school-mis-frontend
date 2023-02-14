@@ -8,24 +8,25 @@ import Footer from "./components/Footer";
 import Dashboard from "./pages/dashboard";
 import Protected from "./components/Protected";
 import NotFound from "./components/NotFound";
-import { useState, CSSProperties, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
+
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+     setTimeout(() => {
+      setLoading(false)
+     }, 1000)
+  },[])
 
   return (
     <>
-    <Loader>
+    {loading ? <Loader>
     <PropagateLoader color="#376cd7" />
-    </Loader>
-
-    <Container className="App">
+    </Loader> : <Container className="App">
       <Banner />
       <Routes>
         <Route path="/" element={<Login />} />
@@ -34,7 +35,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </Container>
+    </Container>}
+  
     </>
   );
 }
@@ -43,6 +45,14 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
+const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  left: 50%;
 
+`;
 
 export default App;

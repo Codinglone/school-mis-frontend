@@ -8,9 +8,6 @@ const Dashboard = () => {
   const [ready, setReady] = useState(false);
   const user = localStorage.getItem("user");
   useEffect(() => {
-    setTimeout(() => {
-      setReady(true)
-    }, 2000)
     if (!user) {
       navigate("/");
     }
@@ -20,7 +17,7 @@ const Dashboard = () => {
     navigate("/");
   };
   return (
-    ready && <div>
+  <div>
     <Loguser handleLogout={handleLogout} />
    <Navbar />
   </div>
