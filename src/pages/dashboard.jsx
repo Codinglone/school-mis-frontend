@@ -1,24 +1,24 @@
-import React, {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const user = localStorage.getItem('user');
+  const user = localStorage.getItem("user");
   useEffect(() => {
-  if(!user){
-    navigate('/')
-  }
-  })
+    if (!user) {
+      navigate("/");
+    }
+  });
   const handleLogout = () => {
-    localStorage.removeItem('user')
-    navigate('/')
-  }
+    localStorage.removeItem("user");
+    navigate("/");
+  };
   return (
     <div>
-      <button className='bg-blue-600 my-3 ml-5 px-2 py-1 text-white font-semibold rounded-sm hover:bg-blue-400' onClick={handleLogout}>Logout</button>
+     <Navbar />
     </div>
-  )
-}
+  );
+};
 
-
-export default Dashboard
+export default Dashboard;
