@@ -1,9 +1,10 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Protected = ({children, user}) => {
+  const navigate = useNavigate();
     if(!user){
-        <Navigate to='/' />
+        navigate('/')
     }
   return (
     <div>Protected</div>

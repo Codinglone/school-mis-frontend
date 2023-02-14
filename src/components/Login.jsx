@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios, { AxiosError } from "axios";
 import Message from "./Message";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +11,7 @@ const Login = () => {
   const [isMessage, setIsMessage] = useState(false);
   const [bg, setBg] = useState('red');
 
+  const navigate  = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
     const response = await axios
@@ -26,8 +27,9 @@ const Login = () => {
           localStorage.setItem('user',response.data.email)
           setTimeout(() => {
             setIsMessage(false)
-            
+            navigate('/dashboard')
           }, 2000);
+
         }
       })
       .catch(function (error) {
