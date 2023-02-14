@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/dashboard";
 import Protected from "./components/Protected";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Container>
