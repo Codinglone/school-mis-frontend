@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Loguser from "../components/Loguser";
@@ -17,7 +17,7 @@ const Dashboard = () => {
   };
   return (
     <div>
-      <Loguser />
+      <Loguser handleLogout={handleLogout} />
      <Navbar />
     </div>
   );
