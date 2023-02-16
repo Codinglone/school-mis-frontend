@@ -16,6 +16,8 @@ const Navbar = () => {
             <li><Link to='/dashboard/classes'>Classes</Link></li>
             <li><Link to='/dashboard/trades'>Trades/Options</Link></li>
             <li><Link to='/dashboard/discipline'>Discipline</Link></li>
+            <li><Link to='/dashboard/categories'>Categories</Link></li>
+
         </Nav>
         <section className='my-5'></section>
     </div>
