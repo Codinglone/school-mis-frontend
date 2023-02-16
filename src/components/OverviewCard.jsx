@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const OverviewCard = ({ title, value }) => {
+const OverviewCard = ({ title, value, link }) => {
   return (
   <Container className="text-blue-700 font-semibold">
     <h1 className="text-2xl">{title}</h1>
-    <h1 className="text-6xl">{value}</h1>
+    <h1 className="text-4xl hover:text-5xl">{value}</h1>
+    <Link to={link} className="underline text-2xl hover:text-blue-600">View all</Link>
   </Container>);
 };
 
