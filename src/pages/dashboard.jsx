@@ -23,7 +23,7 @@ const Dashboard = () => {
       <Loguser handleLogout={handleLogout} />
       <Navbar />
       <Container>
-        <OverviewCard />
+        <OverviewCard title={'Total Categories'} />
       </Container>
     </div>
   );
