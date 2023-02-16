@@ -8,7 +8,7 @@ const Loguser = ({handleLogout}) => {
     <div>
         <Container className='bg-blue-500 text-white'>
             <li id='user'>{user}</li>
-            <li id='out' onClick={handleLogout}><span>Logout</span><FaSignOutAlt className='my-1 ml-2' /></li>
+            <li id='out' className='hover:tracking-widest' style={{transition: '0.5s ease-in-out'}} onClick={handleLogout}><span>Logout</span><FaSignOutAlt className='my-1 ml-2' /></li>
         </Container>
     </div>
   )
