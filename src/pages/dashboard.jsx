@@ -4,20 +4,26 @@ import Navbar from "../components/Navbar";
 import Loguser from "../components/Loguser";
 import OverviewCard from "../components/OverviewCard";
 import styled from "styled-components";
-
+import { fetch } from "../utils/fetchApi";
 const Dashboard = () => {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
   const user = localStorage.getItem("user");
+
+  const baseUrl  = 'http://localhost:7000/api/v1/categories';
+
   useEffect(() => {
     if (!user) {
       navigate("/");
     }
-  });
+   
+  },[]);
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/");
   };
+  
+  
   return (
     <div>
       <Loguser handleLogout={handleLogout} />
