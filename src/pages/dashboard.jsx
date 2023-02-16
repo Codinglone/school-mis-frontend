@@ -31,6 +31,7 @@ const Dashboard = () => {
 
 const Container =  styled.div`
     display: flex;
+    padding: 20px;
 `;
 
 export default Dashboard;
