@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Loguser from "../components/Loguser";
+import OverviewCard from "../components/OverviewCard";
 
 const Dashboard = () => {
   const navigate = useNavigate();
