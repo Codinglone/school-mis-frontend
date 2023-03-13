@@ -23,6 +23,14 @@ const Dashboard = () => {
     navigate("/");
   };
   
+ useEffect(() => {
+  const categoriesCall = async() => {
+    const categories = await fetch(baseUrl);
+    console.log(categories.data)
+    return categories
+  }
+  // console.log(categoriesCall());
+ }, [])
   
   return (
     <div>
