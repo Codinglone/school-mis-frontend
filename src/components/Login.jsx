@@ -29,7 +29,7 @@ const Login = () => {
           setMessage("Welcome back!!");
           setIsMessage(true);
           setBg('#19c22f')
-          localStorage.setItem('user',response.data.email)
+          localStorage.setItem('token',response.data.token)
           setTimeout(() => {
             setIsMessage(false)
             navigate('/dashboard')
@@ -39,7 +39,7 @@ const Login = () => {
       })
       .catch(function (error) {
         console.log(error);
-        setMessage("Invalid Credentials!!");
+        setMessage(error);
           setIsMessage(true);
           setBg('#d61919');
           setTimeout(() => setIsMessage(false), 2000);
