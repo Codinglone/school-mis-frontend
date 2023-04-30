@@ -14,10 +14,15 @@ const Login = () => {
   const navigate  = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
+    const token = localStorage.get("token")
     const response = await axios
-      .post("http://localhost:7000/api/v1/users/login", {
+      .post("http://localhost:8000/api/v1/users/login", {
         email,
         password
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
       .then(function (response) {
         if (response.status === 200) {
