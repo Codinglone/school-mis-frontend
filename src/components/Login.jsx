@@ -14,7 +14,7 @@ const Login = () => {
   const navigate  = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const token = localStorage.get("token")
+    const token = localStorage.get("token") || ""
     const response = await axios
       .post("http://localhost:8000/api/v1/users/login", {
         email,
