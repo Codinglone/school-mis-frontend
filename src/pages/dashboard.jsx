@@ -8,18 +8,18 @@ import { fetch } from "../utils/fetchApi";
 const Dashboard = () => {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
-  const user = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
 
   const baseUrl  = 'http://localhost:8000/api/v1/categories';
 
   useEffect(() => {
-    if (!user) {
+    if (!token) {
       navigate("/");
     }
    
   },[]);
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/");
   };
   
