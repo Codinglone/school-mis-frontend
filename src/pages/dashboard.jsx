@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [ready, setReady] = useState(false);
   const user = localStorage.getItem("user");
 
-  const baseUrl  = 'http://localhost:7000/api/v1/categories';
+  const baseUrl  = 'http://localhost:8000/api/v1/categories';
 
   useEffect(() => {
     if (!user) {
