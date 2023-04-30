@@ -14,12 +14,12 @@ const Login = () => {
   const navigate  = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
+    const formData = new FormData()
+    formData.append('email', email)
+    formData.append('password', password)
     const token = localStorage.getItem("token") ? localStorage.getItem("token") : ""
     const response = await axios
-      .post("http://localhost:8000/api/v1/users/login", {
-        email,
-        password
-      }, {
+      .post("http://localhost:8000/api/v1/users/login", formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }
